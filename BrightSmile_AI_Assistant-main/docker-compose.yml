@@ -1,0 +1,51 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=brightsmile
+      - POSTGRES_PASSWORD=brightsmile
+      - POSTGRES_DB=brightsmile
+    ports:
+      - "5433:5432"
+    volumes:
+      - brightsmile_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brightsmile"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage/cases:/data/cases
+    environment:
+      - BRIGHTSMILE_STORAGE_ROOT=/data/cases
+      - BRIGHTSMILE_CORS_ORIGINS=["http://localhost:3000"]
+      - BRIGHTSMILE_DATABASE_URL=postgresql://brightsmile:brightsmile@db:5432/brightsmile
+      - BRIGHTSMILE_RAG_ENABLED=true
+      - BRIGHTSMILE_RAG_DATABASE_URL=postgresql://brightsmile:brightsmile@db:5432/brightsmile
+      - BRIGHTSMILE_LLM_PROVIDER=${BRIGHTSMILE_LLM_PROVIDER:-openai}
+      - BRIGHTSMILE_OPENAI_API_KEY=${BRIGHTSMILE_OPENAI_API_KEY:-}
+      - BRIGHTSMILE_ANTHROPIC_API_KEY=${BRIGHTSMILE_ANTHROPIC_API_KEY:-}
+      - BRIGHTSMILE_GEMINI_API_KEY=${BRIGHTSMILE_GEMINI_API_KEY:-}
+      - BRIGHTSMILE_GROQ_API_KEY=${BRIGHTSMILE_GROQ_API_KEY:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: http://localhost:8000/api/v1
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  brightsmile_db:

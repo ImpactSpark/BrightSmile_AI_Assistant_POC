@@ -1,0 +1,5 @@
+[
+  {"query": "how should I manage a deep caries lesion", "expected_chunk_ids": []},
+  {"query": "when should I refer a patient for periodontitis treatment", "expected_chunk_ids": []},
+  {"query": "what imaging modality is recommended for suspected periapical lesion", "expected_chunk_ids": []}
+]

@@ -1,0 +1,9 @@
+{
+  "model": "/content/drive/MyDrive/dental_ai_poc/models/dental_poc/best.pt",
+  "gpu": "Tesla T4",
+  "image_size": 1024,
+  "confidence": 0.2,
+  "images_benchmarked": 50,
+  "average_latency_ms": 142.31172698000591,
+  "images_per_second": 7.026827804152043
+}

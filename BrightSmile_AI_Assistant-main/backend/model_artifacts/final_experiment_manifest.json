@@ -1,0 +1,23 @@
+{
+  "project": "dentex_dental_ai_poc",
+  "dataset": "DENTEX",
+  "model": "YOLO11m",
+  "classes": {
+    "0": "Caries",
+    "1": "Deep_Caries",
+    "2": "Periapical_Lesion",
+    "3": "Impacted_Tooth"
+  },
+  "confidence_threshold": 0.2,
+  "gpu": "Tesla T4",
+  "image_size": 1024,
+  "artifacts": {
+    "model": "/content/drive/MyDrive/dental_ai_poc/models/dental_poc/best.pt",
+    "dataset": "/content/drive/MyDrive/dental_ai_poc/dataset/yolo",
+    "validation_metrics": "/content/drive/MyDrive/dental_ai_poc/metrics/validation_metrics.json",
+    "threshold_selection": "/content/drive/MyDrive/dental_ai_poc/metrics/threshold_selection.json",
+    "final_test_metrics": "/content/drive/MyDrive/dental_ai_poc/metrics/final_test_metrics.json",
+    "inference_benchmark": "/content/drive/MyDrive/dental_ai_poc/metrics/inference_benchmark.json",
+    "test_predictions": "/content/drive/MyDrive/dental_ai_poc/predictions/test_predictions"
+  }
+}

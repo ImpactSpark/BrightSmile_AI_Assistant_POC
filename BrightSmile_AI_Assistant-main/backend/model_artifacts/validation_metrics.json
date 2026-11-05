@@ -1,0 +1,14 @@
+{
+  "evaluation_type": "final_validation",
+  "split": "val",
+  "model": "/content/drive/MyDrive/dental_ai_poc/models/dental_poc/best.pt",
+  "confidence_threshold": 0.2,
+  "iou_threshold": 0.7,
+  "imgsz": 1024,
+  "validation_images": 102,
+  "precision": 0.5845523944040893,
+  "recall": 0.6511267224325523,
+  "f1": 0.6160461554660286,
+  "map50": 0.548648997171821,
+  "map50_95": 0.39339006981169217
+}

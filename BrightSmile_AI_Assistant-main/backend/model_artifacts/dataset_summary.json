@@ -1,0 +1,17 @@
+{
+  "dataset": "DENTEX",
+  "total_images": 678,
+  "train_images": 474,
+  "validation_images": 102,
+  "test_images": 102,
+  "annotations": 3529,
+  "class_distribution": {
+    "Impacted_Tooth": 604,
+    "Caries": 2189,
+    "Periapical_Lesion": 158,
+    "Deep_Caries": 578
+  },
+  "split_strategy": "70/15/15",
+  "seed": 42,
+  "data_yaml": "/content/drive/MyDrive/dental_ai_poc/dataset/yolo/data.yaml"
+}

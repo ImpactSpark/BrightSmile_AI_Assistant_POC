@@ -1,0 +1,26 @@
+{
+  "model_name": "DENTEX YOLO11m Dental Disease Detector",
+  "model_type": "object_detection",
+  "task": "clinical_decision_support",
+  "classes": [
+    {
+      "id": 0,
+      "name": "Caries"
+    },
+    {
+      "id": 1,
+      "name": "Deep_Caries"
+    },
+    {
+      "id": 2,
+      "name": "Periapical_Lesion"
+    },
+    {
+      "id": 3,
+      "name": "Impacted_Tooth"
+    }
+  ],
+  "confidence_threshold": 0.2,
+  "autonomous_diagnosis": false,
+  "clinical_message_template": "Possible {class_name} detected in this region \u2014 dentist review required."
+}
